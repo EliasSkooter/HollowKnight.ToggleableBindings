@@ -32,7 +32,14 @@ namespace ToggleableBindings.Utility
                     stream.Read(data, 0, data.Length);
 
                     Texture2D texture2D = new Texture2D(2, 2);
-                    bool success = texture2D.LoadImage(data);
+                    Type imageConversionType = Type.GetType("UnityEngine.ImageConversion, UnityEngine.ImageConversionModule", throwOnError: true);
+                    MethodInfo loadImage = imageConversionType.GetMethod(
+                        "LoadImage",
+                        BindingFlags.Public | BindingFlags.Static,
+                        binder: null,
+                        types: new[] { typeof(Texture2D), typeof(byte[]), typeof(bool) },
+                        modifiers: null) ?? throw new MissingMethodException("UnityEngine.ImageConversion.LoadImage");
+                    bool success = (bool)loadImage.Invoke(null, new object[] { texture2D, data, false });
                     if (!success)
                         throw new Exception("ImageConversion.LoadImage() failed.");
 

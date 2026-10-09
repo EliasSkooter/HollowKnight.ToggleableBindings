@@ -39,7 +39,7 @@ namespace ToggleableBindings.Utility
         {
             if (_bench == null)
             {
-                var restBench = Object.FindObjectOfType<RestBench>();
+                var restBench = Object.FindFirstObjectByType<RestBench>();
                 if (restBench)
                     _bench = restBench.gameObject;
             }

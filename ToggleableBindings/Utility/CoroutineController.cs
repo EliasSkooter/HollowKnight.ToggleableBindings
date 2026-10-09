@@ -12,7 +12,7 @@ namespace ToggleableBindings.Utility
     internal class CoroutineController : MonoBehaviour
     {
         [NotNull, DisallowNull]
-        private static CoroutineController? Instance { get; set; }
+        private static CoroutineController Instance { get; set; } = null!;
 
         private static readonly Dictionary<string, IEnumerator> _idRoutines = new();
 

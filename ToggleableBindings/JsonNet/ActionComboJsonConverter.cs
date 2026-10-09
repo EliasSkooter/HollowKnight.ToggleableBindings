@@ -13,7 +13,7 @@ namespace ToggleableBindings.JsonNet
             return objectType == typeof(ActionCombo);
         }
 
-        public override object? ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
             if (objectType != typeof(ActionCombo))
                 throw new JsonException("Object is not ActionCombo.");

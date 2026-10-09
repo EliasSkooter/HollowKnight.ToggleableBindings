@@ -49,7 +49,7 @@ namespace ToggleableBindings.Extensions
 
         public static T? GetMemberValue<T>(this Type type, string memberName, object? backingObject)
         {
-            return (T)type.GetMemberValue(memberName, backingObject);
+            return type.GetMemberValue(memberName, backingObject) is T value ? value : default;
         }
 
         public static object? GetMemberValue(this MemberInfo member, object? backingObject)
@@ -67,7 +67,7 @@ namespace ToggleableBindings.Extensions
 
         public static T? GetMemberValue<T>(this MemberInfo member, object? backingObject)
         {
-            return (T)member.GetMemberValue(backingObject);
+            return member.GetMemberValue(backingObject) is T value ? value : default;
         }
 
         public static void SetMemberValue(this MemberInfo member, object? backingObject, object? value, object[]? index = null)

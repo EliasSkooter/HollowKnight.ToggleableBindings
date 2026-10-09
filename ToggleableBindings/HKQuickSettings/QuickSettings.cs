@@ -571,16 +571,16 @@ namespace ToggleableBindings.HKQuickSettings
             var settingsDict = settings.ToDictionary(s => s.Key);
             foreach (var setting in jArray.Children<JObject>())
             {
-                var settingName = setting.Value<string>(nameof(QuickSettingData.SettingName));
+                var settingName = setting.Value<string>(nameof(QuickSettingData.SettingName)) ?? string.Empty;
                 if (settingsDict.TryGetValue(settingName, out var settingInfo))
                 {
-                    var declaringType = settingInfo.MemberInfo.DeclaringType;
+                    var declaringType = settingInfo.MemberInfo.DeclaringType ?? throw new InvalidOperationException("Setting member has no declaring type.");
 
                     var onDeserializing = declaringType.GetMethod("OnDeserializing", methodFlags);
                     onDeserializing?.Invoke(null, null);
 
                     Type memberType = settingInfo.MemberInfo.GetUnderlyingType();
-                    var valueToken = setting.GetValue(nameof(QuickSettingData.SettingValue));
+                    var valueToken = setting.GetValue(nameof(QuickSettingData.SettingValue)) ?? throw new InvalidOperationException("Setting has no value.");
                     var memberValue = valueToken.ToObject(memberType, Serializer);
                     settingInfo.MemberInfo.SetMemberValue(null, memberValue);
 

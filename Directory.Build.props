@@ -1,7 +1,8 @@
 <Project>
   <PropertyGroup>
-    <TargetFramework>net35</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <HollowKnightDir>C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight</HollowKnightDir>
+    <HollowKnightManagedDir>$(HollowKnightDir)\hollow_knight_Data\Managed</HollowKnightManagedDir>
   </PropertyGroup>
 </Project>

@@ -13,9 +13,9 @@ namespace ToggleableBindings.UI
     [RequireComponent(typeof(RectTransform))]
     public class SimpleScroller : MonoBehaviour
     {
-        [NotNull] private RectTransform? _scrollTransform;
-        [NotNull, SerializeField] private RectTransform? _content;
-        [NotNull] private Hashtable? _tweenArgs;
+        [NotNull] private RectTransform? _scrollTransform = null;
+        [NotNull, SerializeField] private RectTransform? _content = null;
+        [NotNull] private Hashtable? _tweenArgs = null;
 
         private GameObject? _lastSelected;
 

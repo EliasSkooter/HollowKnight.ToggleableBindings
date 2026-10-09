@@ -137,7 +137,7 @@ namespace ToggleableBindings.VanillaBindings
         {
             yield return new WaitWhile(() => CharmsMenuFsm == null);
 
-            var stateDeactivateUI = CharmsMenuFsm.GetState("Deactivate UI");
+            var stateDeactivateUI = CharmsMenuFsm!.GetState("Deactivate UI");
             var stateActions = stateDeactivateUI.Actions;
             for (int i = 0; i < stateActions.Length; i++)
             {

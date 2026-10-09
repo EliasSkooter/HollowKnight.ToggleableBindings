@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2026-10-10
+- Updated build references and deployment paths for the current Hollow Knight installation.
+- Removed the compile-time dependency on the current Unity ImageConversion module’s netstandard 2.1 metadata.
+- Cleaned up nullable and obsolete API warnings.
+
 ## [0.1.3] - 2021-10-09
 - Updated for Hollow Knight v1.5.
 
